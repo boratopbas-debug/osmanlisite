@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osmanlı Yatırım · Portal ve "Ne aldığını bil" entegrasyon taslağı</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="tool">
+  <div>
+    <h1>Osmanlı Yatırım · Site entegrasyon taslağı</h1>
+    <div class="sub">Portal, 6 raf, "Ne aldığını bil" içerik motoru, plan ve davet akışlarının mevcut osmanlimenkul.com.tr yapısına yerleşimi · Taslak · son güncelleme <span id="guncelleme"></span></div>
+  </div>
+  <div class="tabs" id="tabs">
+    <button data-v="harita" class="on">1 · Site haritası</button>
+    <button data-v="ana">2 · Ana sayfa</button>
+    <button data-v="hesap">3 · Hesap Aç</button>
+    <button data-v="urun">4 · Ürün sayfası</button>
+    <button data-v="nab">5 · Ne aldığını bil</button>
+    <button data-v="motor">6 · İçerik motoru</button>
+    <button data-v="yol">7 · Yol haritası</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ======================= 1. SİTE HARİTASI ======================= -->
+<section class="view on" id="harita">
+  <div class="intro">
+    <h2>Yeni bir site kurmuyoruz: portal, mevcut osmanlimenkul.com.tr'nin içine üç yeni bölüm olarak giriyor</h2>
+    <p>Bugün BYF'ler Osmanlı Yatırım sitesinin menüsünde yok. Yalnızca Osmanlı Portföy'ün ayrı sitesinde duruyorlar. Hesap Aç sayfasında da BYF seçeneği bulunmuyor. Fonlar, araştırma ekranları (YatırımDirekt, BorsaDirekt) ve eğitimler beş ayrı alan adına dağılmış durumda.</p>
+    <p>Öneri: mevcut menüye <b>Yatırım Rafları</b>, <b>Ne aldığını bil</b> ve <b>Düzenli Plan</b> girişleri ekleniyor. Ürün sayfaları tek bir şablonla bu alan adı altında toplanıyor. Diğer siteler kaldırılmıyor; ürün sayfasından derin bağlantıyla bunlara yönlendiriliyor.</p>
+    <div class="legend"><span><i class="dot" style="background:#f5f6f6;border:1px solid #ccc"></i>Bugün var, değişmiyor</span><span><i class="dot" style="background:#fffaf0;border:1.5px solid var(--new)"></i>Yeni ya da değişiyor</span><span><i class="dot" style="background:#fff;border:1.5px solid var(--line)"></i>Var, portala bağlanıyor</span></div>
+  </div>
+
+  <div class="diag">
+    <div class="colhead">ÜST MENÜ · BUGÜN → ÖNERİ</div>
+    <div class="grid g4" style="margin-bottom:22px">
+      <div class="box o"><h5>Neden Osmanlı Yatırım</h5><ul><li>Biz kimiz, saklama ve güvence</li><li>Değişmiyor</li></ul></div>
+      <div class="box n"><h5>Yatırım Rafları <span class="nw">YENİ · M12</span></h5><ul><li>Nakit park · Birikim çekirdeği · Gelir · Değer koruma · Katılım · İleri/aktif</li><li>Bugünkü "Ürünlerimiz" menüsü bunun altına taşınıyor</li></ul></div>
+      <div class="box n"><h5>Ne aldığını bil <span class="nw">YENİ · M3</span></h5><ul><li>Günlük portföy, haftalık not</li><li>"Bu hisseyi tutan fonlar"</li><li>BYF karnesi (rakip kıyas · M7)</li></ul></div>
+      <div class="box n"><h5>Düzenli Plan <span class="nw">YENİ · M1</span></h5><ul><li>Ayda X TL ile plan kur</li><li>Arkadaşını getir (M5), hoş geldin payı</li></ul></div>
+      <div class="box o"><h5>Finansal Planlama</h5><ul><li>YatırımDirekt, BES PYH, fonlarla PY</li><li>Raflardan buraya "danışmanla konuş" geçişi</li></ul></div>
+      <div class="box o"><h5>Eğitimler</h5><ul><li>Akademi, BAÜ videoları</li><li>Ne aldığını bil'deki terim sözlüğüne bağlanıyor</li></ul></div>
+      <div class="box n"><h5>Hesap Aç <span class="nw">DEĞİŞİYOR</span></h5><ul><li>Ürün seçimine BYF ekleniyor</li><li>Öne 3 soruluk raf testi</li><li>Davet kodu alanı</li></ul></div>
+      <div class="box o"><h5>Yatırımcı İlişkileri, Kaynaklar</h5><ul><li>Değişmiyor</li></ul></div>
+    </div>
+
+    <div class="colhead">ALAN ADLARI · DAĞINIK → TEK GİRİŞ</div>
+    <div style="display:grid;grid-template-columns:1fr 60px 1.3fr;gap:10px;align-items:center">
+      <div class="grid" style="gap:8px">
+        <div class="box o">osmanliportfoy.com.tr <span style="float:right">BYF ve fon sayfaları</span></div>
+        <div class="box o">yatirimdirekt.com <span style="float:right">fon araştırma</span></div>
+        <div class="box o">borsadirekt.com <span style="float:right">günlük takip</span></div>
+        <div class="box o">market.borsadirekt.com <span style="float:right">Osmanlı Market</span></div>
+        <div class="box o">Netlify araçları <span style="float:right">fon arama, rakip kıyas, 2x</span></div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box n" style="padding:16px">
+        <h5>osmanlimenkul.com.tr/yatirim/… <span class="nw">PORTAL · M10</span></h5>
+        <ul>
+          <li><b>/raflar/birikim-cekirdegi</b>: raf sayfası</li>
+          <li><b>/urun/opx30</b>: tek şablonlu ürün sayfası; veri osmanliportfoy.com.tr'den API ile geliyor</li>
+          <li><b>/ne-aldigini-bil</b>: içerik merkezi; araçlar Netlify'dan alt yola taşınıyor</li>
+          <li><b>/plan</b>: plan akışı → Osmanlı Mobil derin bağlantısı</li>
+          <li>Ürün sayfasında "BorsaDirekt'te takip et" ve "YatırımDirekt'te incele" düğmeleri; o siteler kalıyor, giriş noktası değişiyor</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">Neden alt yol (subfolder), alt alan adı değil: arama motoru otoritesi ana alan adında birikiyor, tek çerez ve tek analitik hunisi oluyor, mevcut "Müşterimiz Ol" düğmesi her sayfada aynı kalıyor. M numaraları fizibilite dokümanındaki madde numaraları.</div>
+  </div>
+</section>
+
+<!-- ======================= 2. ANA SAYFA ======================= -->
+<section class="view" id="ana">
+  <div class="intro">
+    <h2>Ana sayfa: ürün değil davranış satılıyor, altı raf ilk ekranda</h2>
+    <p>Üst şerit ve menü bugünkü siteyle aynı; değişen yerler sarı kesikli çizgiyle işaretli. Hero alanı bir ürünü değil düzenli yatırım davranışını anlatıyor (M6). Hemen altında raflar (M12) ve haftalık "Ne aldığını bil" notu (M3) geliyor.</p>
+  </div>
+  <div class="browser">
+    <div class="bar"><i></i><i></i><i></i><div class="url">osmanlimenkul.com.tr</div></div>
+    <div class="topbar"><div class="seg"><a class="act">Finansal Planlama</a><a>Hisse ve VİOP</a></div><div>E-Şube Giriş · Platformlarımız · 444 1 730</div></div>
+    <div class="hdr">
+      <div class="logo">OSMANLI<small>YATIRIM</small></div>
+      <div class="nav"><span>Neden Osmanlı</span><span class="newbox" style="padding:2px 6px"><b>Yatırım Rafları</b></span><span class="newbox" style="padding:2px 6px"><b>Ne aldığını bil</b></span><span class="newbox" style="padding:2px 6px"><b>Düzenli Plan</b></span><span>Finansal Planlama</span><span>Eğitimler</span></div>
+      <div class="cta"><span class="btn ghost">E-Şube</span><span class="btn red">Müşterimiz Ol</span></div>
+    </div>
+
+    <div class="hero newbox" style="border-radius:0">
+      <div>
+        <span class="nw" style="margin-bottom:10px">YENİ · M6 davranış dili</span>
+        <h1>Ayda 1.000 TL ile<br>BIST 30'a ortak ol.</h1>
+        <p>Tutarı sen seç, günü sen seç. Her ay otomatik alınır. Ne aldığını da her gün görürsün.</p>
+        <span class="btn mint">Planını kur</span> &nbsp; <span class="btn ghost" style="background:transparent;color:#fff;border-color:#fff">Rafları gör</span>
+      </div>
+      <div class="mini">
+        <div class="k" style="color:#9fc9c3">Planın</div>
+        <div style="display:flex;justify-content:space-between;align-items:end;margin:6px 0 10px"><div class="big" style="color:#fff">1.000 TL / ay</div><div style="color:#9fc9c3;font-size:12px">her ayın 15'i</div></div>
+        <div style="display:flex;gap:8px;font-size:12px;color:#cde7e3"><span class="pill" style="background:var(--mint);color:var(--deep2)">OPX30</span>12 ayda yatırılan: <b style="color:#fff">12.000 TL</b></div>
+        <div style="font-size:11px;color:#9fc9c3;margin-top:10px">Getiri tahmini gösterilmez; yalnızca yatırılan anapara.</div>
+      </div>
+    </div>
+
+    <div class="sec newbox" style="border-radius:0">
+      <span class="nw">YENİ · M12 altı raf</span>
+      <h2 style="margin-top:8px">Önce ihtiyacını seç, sonra ürünü</h2>
+      <div class="lead">15'ten fazla ürün altı rafta. Hangisinin sana uyduğunu bilmiyorsan 3 soruluk teste başla.</div>
+      <div class="grid g6">
+        <div class="shelf s1"><div><b>Nakit park</b><br><small>Kısa vadeli bekleyen para</small></div><div class="codes">OPTLR · para piyasası</div></div>
+        <div class="shelf s2"><div><b>Birikim çekirdeği</b><br><small>Uzun vadeli, düzenli</small></div><div class="codes">OPX30 · OPD25 · OPTGY</div></div>
+        <div class="shelf s3"><div><b>Gelir</b><br><small>Düzenli nakit akışı</small></div><div class="codes">OPT25 · bono · eurobond</div></div>
+        <div class="shelf s4"><div><b>Değer koruma</b><br><small>Enflasyon ve kura karşı</small></div><div class="codes">OPGLD · döviz</div></div>
+        <div class="shelf s5"><div><b>Katılım</b><br><small>Faizsiz esaslar</small></div><div class="codes">OPK30 · kira sertifikası</div></div>
+        <div class="shelf s6"><div><b>İleri / aktif</b><br><small>Deneyimli yatırımcı</small></div><div class="codes">2X BYF · VİOP · opsiyon</div></div>
+      </div>
+    </div>
+
+    <div class="sec" style="background:var(--bg)">
+      <div class="grid g3">
+        <div class="card newbox" style="grid-column:span 2">
+          <span class="nw">YENİ · M3 haftalık not</span>
+          <h4 style="margin-top:8px">Bu hafta fonlarımızda ne değişti?</h4>
+          <p style="margin-bottom:10px">Her pazartesi 09:30'da yayınlanır. Örnek gösterim:</p>
+          <table id="haftalikNot"></table>
+          <div style="margin-top:10px"><a>Tüm notlar →</a></div>
+        </div>
+        <div class="card newbox">
+          <span class="nw">YENİ · M5 + hoş geldin payı</span>
+          <h4 style="margin-top:8px">Arkadaşını getir, ikiniz de 1 pay kazanın</h4>
+          <p>Arkadaşın ilk planını kurduğunda ikinize de bir Osmanlı BYF payı. Hesap açana ayrıca hoş geldin payı.</p>
+          <div style="margin-top:12px"><span class="btn teal">Davet linkimi al</span></div>
+          <div style="font-size:11px;color:var(--muted);margin-top:8px">Hukuk ve vergi görüşü onayına bağlı.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="grid g4">
+        <div class="card"><span class="pill">Mevcut</span><h4 style="margin-top:8px">MKK blokaj ile şeffaf güvence</h4><p>Bugünkü "Neden Osmanlı" maddeleri korunuyor.</p></div>
+        <div class="card"><span class="pill">Mevcut</span><h4 style="margin-top:8px">Halka açık, denetlenen kurum</h4><p>Bugünkü metin.</p></div>
+        <div class="card newbox"><span class="nw">YENİ · M7</span><h4 style="margin-top:8px">BYF karnesi</h4><p>Aynı endeksi izleyen fonlarla ücret, takip farkı ve likidite kıyası, her ay güncellenir.</p></div>
+        <div class="card newbox"><span class="nw">YENİ · M8</span><h4 style="margin-top:8px">Müşteri memnuniyeti: NPS</h4><p>Ölçüm 6 ay oturduktan sonra skor sitede yayınlanabilir.</p></div>
+      </div>
+    </div>
+    <div class="footer">Osmanlı Yatırım Menkul Değerler A.Ş. · Footer bugünküyle aynı</div>
+  </div>
+</section>
+
+<!-- ======================= 3. HESAP AÇ ======================= -->
+<section class="view" id="hesap">
+  <div class="intro">
+    <h2>Hesap Aç: formdan önce 3 soru, ürün listesine BYF, forma davet kodu</h2>
+    <p>Bugünkü sayfa ziyaretçiye önce 9 ürün seçeneği sunuyor (Fon, Bono, Eurobond, Hisse, VİOP…), ardından form geliyor. BYF bu listede yok. Ziyaretçi neyi seçeceğini bilmiyorsa sayfada ona yardım eden bir şey de yok.</p>
+    <p>Öneri: ürün seçiminden önce isteğe bağlı 3 soruluk <b>raf testi</b>. Sonuç bir raf öneriyor ve formdaki ürün ilgisini kendisi dolduruyor. Testi aşağıda deneyebilirsin.</p>
+  </div>
+  <div class="browser">
+    <div class="bar"><i></i><i></i><i></i><div class="url">osmanlimenkul.com.tr/finansal-planlama/hesap-acilis-islemleri/hesap-ac</div></div>
+    <div class="topbar"><div class="seg"><a class="act">Finansal Planlama</a><a>Hisse ve VİOP</a></div><div>E-Şube Giriş · Platformlarımız</div></div>
+    <div class="hdr"><div class="logo">OSMANLI<small>YATIRIM</small></div><div class="nav"><span>Neden Osmanlı</span><span>Yatırım Rafları</span><span>Ne aldığını bil</span><span>Düzenli Plan</span><span>Finansal Planlama</span></div><div class="cta"><span class="btn red">Müşterimiz Ol</span></div></div>
+    <div class="crumb">Anasayfa › Finansal Planlama › Hesap Açılış İşlemleri › Hesap Aç</div>
+
+    <div class="sec" style="display:grid;grid-template-columns:1.1fr 1fr;gap:28px">
+      <div class="newbox" style="padding:18px;border-radius:12px;background:#fcfefe">
+        <span class="nw">YENİ · raf testi</span>
+        <h2 style="font-size:20px;margin:8px 0 4px">Hangi raf sana uyuyor?</h2>
+        <div class="lead" style="margin-bottom:14px">3 soru, 20 saniye. İstersen atla.</div>
+        <div class="q"><b>1. Bu parayı ne zaman kullanmayı düşünüyorsun?</b><div class="chips" data-q="vade"><span class="chip" data-a="kisa">1 yıl içinde</span><span class="chip" data-a="orta">1–3 yıl</span><span class="chip" data-a="uzun">3 yıldan sonra</span></div></div>
+        <div class="q"><b>2. Yatırımın bir ayda %10 düşse ne yaparsın?</b><div class="chips" data-q="tepki"><span class="chip" data-a="sat">Satarım</span><span class="chip" data-a="bekle">Beklerim</span><span class="chip" data-a="al">Ekleme yaparım</span></div></div>
+        <div class="q"><b>3. Faizsiz (katılım esaslı) ürün tercihin var mı?</b><div class="chips" data-q="katilim"><span class="chip" data-a="evet">Evet</span><span class="chip" data-a="hayir">Fark etmez</span></div></div>
+        <div class="result" id="rafSonuc"></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:10px">Bu test yasal uygunluk testinin yerine geçmez; yalnızca keşif içindir. Hesap açılışında mevzuattaki uygunluk testi ayrıca yapılır.</div>
+      </div>
+
+      <div>
+        <h2 style="font-size:20px;margin-bottom:10px">Müşterimiz olun</h2>
+        <div class="k" style="margin-bottom:6px">İlgilendiğiniz ürünler</div>
+        <div class="chips" id="urunChips" style="margin-bottom:16px">
+          <span class="chip" data-p="Fon">Fon</span>
+          <span class="chip newbox" data-p="BYF" style="outline-offset:1px">BYF <span class="nw">YENİ</span></span>
+          <span class="chip newbox" data-p="Düzenli Plan" style="outline-offset:1px">Düzenli Plan <span class="nw">YENİ</span></span>
+          <span class="chip" data-p="Bono">Bono</span><span class="chip" data-p="Eurobond">Eurobond</span><span class="chip" data-p="Hisse">Hisse</span><span class="chip" data-p="Yabancı Hisse">Yabancı Hisse</span><span class="chip" data-p="Vadeli">Hisse/Endeks Vadeli</span><span class="chip" data-p="Opsiyon">Opsiyon</span><span class="chip" data-p="FX">FX</span>
+        </div>
+        <div class="grid g2" style="gap:10px">
+          <label class="field">Ad Soyad<input placeholder=""></label>
+          <label class="field">Cep telefonu<input placeholder="05__ ___ __ __"></label>
+          <label class="field">E-posta<input></label>
+          <label class="field">Şehir<select><option>İstanbul</option></select></label>
+        </div>
+        <div class="newbox" style="margin-top:12px;padding:10px;border-radius:10px">
+          <label class="field">Davet kodu (isteğe bağlı) <span class="nw" style="width:max-content">YENİ · M5</span><input placeholder="örn. BORA-7Q2K"></label>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Davet koduyla gelen ve ilk planını kuran müşteriye ve davet edene 1'er BYF payı.</div>
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin:12px 0">KVKK aydınlatma metni · İletişim izni (bugünkü onay kutuları aynı kalıyor)</div>
+        <span class="btn red">Gönder</span> &nbsp; <span class="btn ghost">Görüntülü Hesap Aç</span>
+      </div>
+    </div>
+
+    <div class="sec" style="background:var(--bg)">
+      <h2 style="font-size:20px">Osmanlı Yatırım'da BYF işlemlerinin avantajları <span class="nw">YENİ BLOK</span></h2>
+      <div class="lead">Bugünkü sayfada Fon, Bono, Eurobond, BES ve Hisse için avantaj blokları var. Aynı kalıpta bir BYF bloğu ekleniyor.</div>
+      <div class="grid g4">
+        <div class="card"><h4>Ne aldığını her gün gör</h4><p>Fonun tüm pozisyonları her gün sitede yayınlanır.</p></div>
+        <div class="card"><h4>Borsada anlık fiyat</h4><p>Gün içinde hisse gibi alınıp satılır.</p></div>
+        <div class="card"><h4>Düşük ve açık ücret</h4><p>Yıllık yönetim ücreti %0,25'ten başlar.</p></div>
+        <div class="card"><h4>Ayda 500 TL'den plan</h4><p>Osmanlı Mobil'de otomatik düzenli alım.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4. ÜRÜN SAYFASI ======================= -->
+<section class="view" id="urun">
+  <div class="intro">
+    <h2>Ürün sayfası şablonu: her fon aynı sırayla anlatılıyor, "Ne aldığını bil" modülleri sayfanın gövdesinde</h2>
+    <p>Örnek OPX30. Aynı şablon 7 BYF'ye, sonra yatırım fonlarına uygulanıyor. Veri osmanliportfoy.com.tr'deki fon sayfası ve KAP portföy dağılım raporundan otomatik geliyor. İçerik ekibi yalnızca "Bu hafta ne oldu" notunu yazıyor.</p>
+    <p class="note" style="margin-top:8px">Pozisyon ağırlıkları, risk göstergesi ve rakip kıyas alanları <b>örnek</b>, gerçek değil; yapı göstermek için konuldu. Ücret (%0,25) ve endeks adı fon sayfasından.</p>
+  </div>
+  <div class="browser">
+    <div class="bar"><i></i><i></i><i></i><div class="url">osmanlimenkul.com.tr/yatirim/urun/opx30</div></div>
+    <div class="hdr"><div class="logo">OSMANLI<small>YATIRIM</small></div><div class="nav"><span>Neden Osmanlı</span><span>Yatırım Rafları</span><span>Ne aldığını bil</span><span>Düzenli Plan</span><span>Finansal Planlama</span></div><div class="cta"><span class="btn red">Müşterimiz Ol</span></div></div>
+    <div style="background:var(--deep2);color:#cde7e3;font-size:12px;padding:7px 28px">NE ALDIĞINI BİL · Bu fonun bugünkü tüm pozisyonları aşağıda</div>
+    <div class="crumb">Yatırım Rafları › <b style="color:var(--teal)">Birikim çekirdeği</b> › OPX30</div>
+
+    <div class="sec" style="display:grid;grid-template-columns:1.6fr 1fr;gap:26px;align-items:start">
+      <div>
+        <span class="pill" style="background:#e3f5f2">Birikim çekirdeği</span>
+        <h2 style="font-size:28px;margin:8px 0 4px"><span class="tick" style="font-size:28px">OPX30</span> · BIST 30'un tamamına tek payla ortak ol</h2>
+        <div class="lead">Osmanlı Portföy · BIST 30 endeks BYF'si · tam unvan KAP'tan otomatik gelir</div>
+
+        <div class="card" style="margin-bottom:16px">
+          <div class="k" style="margin-bottom:10px">Kimlik kartı</div>
+          <div class="grid g3" style="gap:16px">
+            <div><div class="k">Varlık türü</div><div class="v">Türk hisseleri</div></div>
+            <div><div class="k">Endeks</div><div class="v" style="font-size:13.5px">BIST 30 Ağırlık Sınırlamalı 25 Getiri</div></div>
+            <div><div class="k">Yıllık ücret</div><div class="v">%0,25</div></div>
+            <div><div class="k">İşlem</div><div class="v">Borsada, gün içi</div></div>
+            <div><div class="k">Katılım uygun</div><div class="v">Hayır · <a style="font-size:13px">OPK30'a bak</a></div></div>
+            <div><div class="k">Risk</div><div class="risk"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div></div>
+          </div>
+        </div>
+
+        <div class="card newbox" style="margin-bottom:16px">
+          <span class="nw">M3 · içinde ne var</span>
+          <h4 style="margin:8px 0 10px">İçinde ne var? İlk 10 pozisyon <span style="font-weight:400;color:var(--muted);font-size:12px">· örnek ağırlıklar</span></h4>
+          <table id="pozTablo"></table>
+          <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:12.5px"><a>Tüm 30 pozisyon ve sektör dağılımı →</a><a>Bu hisseler başka hangi fonlarda? →</a></div>
+        </div>
+
+        <div class="card newbox" style="margin-bottom:16px">
+          <span class="nw">M3 · haftalık not</span>
+          <h4 style="margin:8px 0 6px">Bu hafta OPX30'a ne oldu?</h4>
+          <p style="color:var(--text)">Örnek: endeksin çeyreklik dönem değişiminde bir hisse çıktı, bir hisse girdi; fon değişikliği aynı gün uyguladı. Takip farkı gün sonunda sıfıra yakın kapandı.</p>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:6px">İçerik editörü yazar, uyum birimi onaylar, pazartesi 09:30'da yayınlanır.</div>
+        </div>
+
+        <div class="card newbox" style="margin-bottom:16px">
+          <span class="nw">M7 · BYF karnesi</span>
+          <h4 style="margin:8px 0 10px">Aynı endeksi izleyen fonlarla kıyas <span style="font-weight:400;color:var(--muted);font-size:12px">· örnek değerler</span></h4>
+          <table>
+            <tr><th>Fon</th><th class="num">Yıllık ücret</th><th class="num">12 ay takip farkı</th><th class="num">Ort. günlük işlem</th></tr>
+            <tr class="us"><td>OPX30</td><td class="num">%0,25</td><td class="num">%—</td><td class="num">— TL</td></tr>
+            <tr><td>Rakip A</td><td class="num">%—</td><td class="num">%—</td><td class="num">— TL</td></tr>
+            <tr><td>Rakip B</td><td class="num">%—</td><td class="num">%—</td><td class="num">— TL</td></tr>
+          </table>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:8px">Veri kaynağı ve tarih her tabloda yazılır; hukuk görüşü sonrası rakip adlarıyla yayınlanır. Mevcut "BYF Rakip Karşılaştırma" aracı buraya gömülür.</div>
+        </div>
+
+        <div class="grid g2">
+          <div class="card"><h4>Nasıl çalışır</h4><p>1. Fon BIST 30 hisselerini endeks ağırlığıyla tutar. 2. Payı borsada alırsın. 3. Temettüler fona geri yatırılır. · 60 sn video</p></div>
+          <div class="card"><h4>Kime göre değil</h4><p>Paraya 1 yıl içinde ihtiyacı olanlar için uygun değil; onlar için Nakit park rafı.</p></div>
+        </div>
+      </div>
+
+      <div style="position:sticky;top:80px">
+        <div class="card newbox" style="padding:20px">
+          <span class="nw">M1 · plan kutusu</span>
+          <h4 style="margin:8px 0 2px">OPX30 ile düzenli plan</h4>
+          <p style="margin-bottom:14px">Aylık tutarı seç</p>
+          <div class="big" id="planTutar">1.000 TL</div>
+          <input type="range" id="planSlider" min="500" max="20000" step="500" value="1000">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted)"><span>500 TL</span><span>20.000 TL</span></div>
+          <table style="margin-top:14px">
+            <tr><td>12 ayda yatırılan</td><td class="num" id="p12"><b>12.000 TL</b></td></tr>
+            <tr><td>36 ayda yatırılan</td><td class="num" id="p36"><b>36.000 TL</b></td></tr>
+            <tr><td>Yıllık yönetim ücreti</td><td class="num">%0,25</td></tr>
+          </table>
+          <div style="font-size:11px;color:var(--muted);margin:10px 0 14px">Getiri tahmini gösterilmez. Geçmiş performans gelecek için gösterge değildir.</div>
+          <span class="btn teal" style="width:100%;text-align:center">Osmanlı Mobil'de planı kur</span>
+          <div style="font-size:11.5px;text-align:center;margin-top:8px;color:var(--muted)">Hesabın yok mu? <a>Müşterimiz ol</a></div>
+        </div>
+        <div class="card" style="margin-top:12px">
+          <div class="k" style="margin-bottom:8px">Diğer platformlarda</div>
+          <div style="display:flex;flex-direction:column;gap:6px;font-size:13px"><a>BorsaDirekt'te günlük takip →</a><a>YatırımDirekt'te varlık dağılımı →</a><a>Fon bilgi formu ve izahname (PDF) →</a></div>
+        </div>
+        <div class="card" style="margin-top:12px">
+          <div class="k" style="margin-bottom:8px">Aynı rafta</div>
+          <div style="font-size:13px"><span class="tick">OPD25</span> Değer temalı · <span class="tick">OPTGY</span> GYO</div>
+        </div>
+      </div>
+    </div>
+    <div class="disc">Yasal not: Burada yer alan bilgiler yatırım danışmanlığı kapsamında değildir. Fon izahnamesi ve yatırımcı bilgi formu KAP'ta yayınlanmaktadır.</div>
+  </div>
+</section>
+
+<!-- ======================= 5. NE ALDIĞINI BİL MERKEZİ ======================= -->
+<section class="view" id="nab">
+  <div class="intro">
+    <h2>"Ne aldığını bil" merkezi: kampanya cümlesi bir menü başlığına ve araç setine dönüşüyor</h2>
+    <p>Bugün ayrı Netlify sitelerinde duran üç araç (fon içerik arama, rakip kıyas, 2x senaryo) bu sayfanın altına taşınıyor. Üstteki arama kutusu bugünkü <i>fonarama</i> aracının kendisi; aşağıda çalışan bir demo var.</p>
+  </div>
+  <div class="browser">
+    <div class="bar"><i></i><i></i><i></i><div class="url">osmanlimenkul.com.tr/yatirim/ne-aldigini-bil</div></div>
+    <div class="hdr"><div class="logo">OSMANLI<small>YATIRIM</small></div><div class="nav"><span>Neden Osmanlı</span><span>Yatırım Rafları</span><span><b style="color:var(--teal)">Ne aldığını bil</b></span><span>Düzenli Plan</span><span>Finansal Planlama</span></div><div class="cta"><span class="btn red">Müşterimiz Ol</span></div></div>
+
+    <div class="hero" style="grid-template-columns:1fr">
+      <div>
+        <h1 style="font-size:30px">Ne aldığını bil.</h1>
+        <p>Fonlarımızın içinde ne olduğunu her gün açıkça yayınlıyoruz. Bir hisse yaz, onu hangi fonların tuttuğunu gör.</p>
+        <div class="search" style="max-width:560px"><input id="hisseAra" placeholder="Hisse kodu yaz: örn. THYAO, ASELS, BIMAS"><span class="btn mint" id="araBtn">Ara</span></div>
+        <div id="araSonuc" style="margin-top:12px;max-width:560px"></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="grid g3">
+        <div class="card"><span class="pill">Günlük</span><h4 style="margin-top:8px">Fon portföyleri</h4><p>7 BYF'nin bugünkü tüm pozisyonları, ağırlıkları ve dünle farkı. Her sabah 09:30.</p></div>
+        <div class="card"><span class="pill">Haftalık</span><h4 style="margin-top:8px">Bu hafta fonlarımızda</h4><p>Ne değişti, neden değişti. Kısa metin ve 60 saniyelik video. Her pazartesi.</p></div>
+        <div class="card"><span class="pill">Aylık</span><h4 style="margin-top:8px">BYF karnesi</h4><p>Aynı endeksi izleyen tüm BYF'lerle ücret, takip farkı, likidite. Veri kaynağı ve tarih her satırda.</p></div>
+        <div class="card"><span class="pill">Araç</span><h4 style="margin-top:8px">Bu hisseyi tutan fonlar</h4><p>Bugünkü fon içerik arama sitesi. KAP portföy dağılım raporlarından, tüm TEFAS fonları.</p></div>
+        <div class="card"><span class="pill">Araç</span><h4 style="margin-top:8px">2X BYF senaryo hesaplayıcı</h4><p>Endeksin hareketi ve oynaklığına göre 1 hafta ve 1 ay sonucu: basit 2x, bileşik etki, oynaklık kaybı, finansman.</p></div>
+        <div class="card"><span class="pill">Eğitim</span><h4 style="margin-top:8px">BYF 101</h4><p>Banner sistemindeki eğitim serisi ve Akademi videoları. Terimler sitenin her yerinde üzerine gelince açıklanır.</p></div>
+      </div>
+    </div>
+
+    <div class="sec" style="background:var(--bg);display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:center">
+      <div>
+        <h2 style="font-size:20px">Aynı içerik uygulamada da</h2>
+        <div class="lead">Osmanlı Mobil ana ekranı: planlar kartı, altı raf, haftalık not ve 6. ayda çıkan davet kartı. İçerik bir kez üretilir, site ve uygulama aynı kaynaktan beslenir.</div>
+        <ul style="color:var(--text);font-size:13.5px;padding-left:18px">
+          <li>Sembol detayında "Bu hisseyi tutan fonlar" bölümü</li>
+          <li>Plan gerçekleşti, temettü fona yattı, haftalık not geldi bildirimleri</li>
+          <li>Ocak'ta paylaşılabilir yıl sonu özeti: "2026'da 12 ayda 12.000 TL ile BIST 30'a ortak oldun"</li>
+        </ul>
+      </div>
+      <div class="mob">
+        <div class="st"><span>09:41</span><span>Osmanlı Mobil</span></div>
+        <div class="in">
+          <div class="card" style="padding:10px;margin-bottom:8px;background:var(--deep2);color:#fff;border:0"><div style="font-size:10px;color:#9fc9c3">PLANIN</div><b style="font-size:15px">OPX30 · 1.000 TL / ay</b><div style="font-size:10.5px;color:#cde7e3">Sonraki alım: 15 Aralık</div></div>
+          <div class="grid" style="grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:8px">
+            <div class="shelf s1"><b>Nakit park</b></div><div class="shelf s2"><b>Birikim</b></div><div class="shelf s3"><b>Gelir</b></div>
+            <div class="shelf s4"><b>Değer koruma</b></div><div class="shelf s5"><b>Katılım</b></div><div class="shelf s6"><b>İleri</b></div>
+          </div>
+          <div class="card" style="padding:10px;margin-bottom:8px"><div style="font-size:10px;color:var(--teal);font-weight:700">BU HAFTA FONLARIMIZDA</div><div style="font-size:12px">OPD25'te 2 hisse değişti. Neden? →</div></div>
+          <div class="card" style="padding:10px;background:#fff8e6;border-color:#ffe2a3"><div style="font-size:12px"><b>6 aydır plandasın.</b> Bir arkadaşını davet et, ikiniz de 1 pay kazanın.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 6. İÇERİK MOTORU ======================= -->
+<section class="view" id="motor">
+  <div class="intro">
+    <h2>İçerik motoru: veri otomatik gelir, insan yalnızca yorum yazar, uyum tek noktada onaylar</h2>
+    <p>Motorun dört aşaması var. Veri katmanının büyük kısmı bugün zaten kurulu: KAP mail otomasyonu, fon içerik arama, fiili dolaşım takibi, rakip kıyas. Eksik olan editoryal katman ve yayın yüzeylerine dağıtım.</p>
+  </div>
+  <div class="diag">
+    <div class="lane">
+      <div><div class="colhead">1 · KAYNAK (otomatik)</div>
+        <div class="box"><h5>KAP portföy dağılım raporları</h5><ul><li>Fon içerik arama sitesi bunu zaten çekiyor</li></ul></div>
+        <div class="box" style="margin-top:8px"><h5>Fon günlük raporları</h5><ul><li>ETF hedef pozisyon Excel'inin girdisi</li></ul></div>
+        <div class="box" style="margin-top:8px"><h5>TEFAS, Borsa İstanbul, MKK VAP</h5><ul><li>Fiyat, işlem hacmi, fiili dolaşım</li></ul></div>
+        <div class="box" style="margin-top:8px"><h5>Rakip BYF verisi</h5><ul><li>Rakip kıyas aracı</li></ul></div>
+      </div>
+      <div><div class="colhead">2 · ÜRETİM</div>
+        <div class="box"><h5>Otomatik şablonlar</h5><ul><li>Günlük pozisyon tablosu</li><li>Dünle farkı</li><li>Aylık karne</li></ul></div>
+        <div class="box n" style="margin-top:8px"><h5>İçerik editörü <span class="nw">YENİ KADRO</span></h5><ul><li>Haftalık "ne oldu, neden" notu</li><li>60 sn video senaryosu</li><li>Sosyal medya kesitleri</li></ul></div>
+        <div class="box n" style="margin-top:8px"><h5>YZ taslak desteği</h5><ul><li>Veri farkından ilk taslak</li><li>Editör düzeltir</li></ul></div>
+      </div>
+      <div><div class="colhead">3 · ONAY</div>
+        <div class="box n"><h5>Uyum birimi <span class="nw">TEK KAPI</span></h5><ul><li>SPK reklam kuralları</li><li>Getiri vaadi yok, geçmiş performans uyarısı</li><li>Karşılaştırmalı reklam: kaynak ve tarih</li><li>Haftalık not için 24 saat SLA</li></ul></div>
+        <div class="box" style="margin-top:8px"><h5>Otomatik içerik</h5><ul><li>Şablon bir kez onaylanır, sonra veri değişse de yeniden onaya gitmez</li></ul></div>
+      </div>
+      <div><div class="colhead">4 · YAYIN YÜZEYİ</div>
+        <div class="box n"><h5>Site: ürün sayfası + merkez</h5></div>
+        <div class="box n" style="margin-top:8px"><h5>Osmanlı Mobil: ana ekran + bildirim</h5></div>
+        <div class="box" style="margin-top:8px"><h5>E-bülten (mevcut Bülten Talep listesi)</h5></div>
+        <div class="box" style="margin-top:8px"><h5>YouTube, Instagram, TikTok, X</h5></div>
+        <div class="box" style="margin-top:8px"><h5>Müşteri temsilcileri: haftalık "söylenecek 3 şey"</h5></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;padding:20px">
+    <h4 style="margin-bottom:10px">Yayın takvimi</h4>
+    <table>
+      <tr><th>Sıklık</th><th>İçerik</th><th>Üretim</th><th>Yüzey</th></tr>
+      <tr><td>Her gün 09:30</td><td>7 BYF'nin tüm pozisyonları, dünle farkı</td><td>Otomatik</td><td>Ürün sayfaları, merkez</td></tr>
+      <tr><td>Pazartesi</td><td>"Bu hafta fonlarımızda" notu + 60 sn video</td><td>Editör + uyum</td><td>Site, mobil, sosyal, temsilci</td></tr>
+      <tr><td>Ayın ilk iş günü</td><td>BYF karnesi (rakip kıyas)</td><td>Otomatik + uyum</td><td>Merkez, e-bülten</td></tr>
+      <tr><td>Endeks dönem değişimi</td><td>"Endekse ne girdi, ne çıktı" özel notu</td><td>Editör</td><td>Tüm yüzeyler</td></tr>
+      <tr><td>Ocak</td><td>Kişisel yıl sonu özeti</td><td>Otomatik</td><td>Mobil, paylaşım</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ======================= 7. YOL HARİTASI ======================= -->
+<section class="view" id="yol">
+  <div class="intro">
+    <h2>Yol haritası: önce içerik ve ölçüm, sonra plan ve portal, en son pahalı kanallar</h2>
+    <p>Fazlar fizibilite dokümanıyla aynı. Pahalı kanallar (YouTube, metro) hedef sayfa ve mesaj hazır olmadan başlamıyor. Bütçeler fizibilitedeki baz senaryodan, milyon TL.</p>
+    <div class="legend"><span><i class="dot" style="background:var(--teal)"></i>Temel iş</span><span><i class="dot" style="background:var(--new)"></i>Pilot, durdurma kriterine bağlı</span><span><i class="dot" style="background:#6b6fd6"></i>Organizasyon ve hukuk</span></div>
+  </div>
+  <div class="rm">
+    <div class="h">İş akışı</div><div class="h">Ay 1–3</div><div class="h">Ay 4–6</div><div class="h">Ay 7–12</div>
+    <div class="r">Organizasyon</div>
+    <div><span class="task base">UI/UX uzmanı ve içerik editörü işe başlar (3,6 / yıl)</span><span class="task base">Hukuk + vergi görüşü: hediye pay, rakip kıyas</span></div>
+    <div></div><div></div>
+    <div class="r">Site / portal (M10, M12)</div>
+    <div><span class="task">Bilgi mimarisi, raf eşlemesi, ürün sayfası şablonu</span><span class="task">Hesap Aç'a BYF + raf testi</span></div>
+    <div><span class="task">Portal yayını: 7 BYF sayfası + merkez (2,50)</span></div>
+    <div><span class="task">Yatırım fonlarına şablonun genişletilmesi (0,30)</span></div>
+    <div class="r">Ne aldığını bil (M3, M7)</div>
+    <div><span class="task">Rakip kıyası yayında (0,20)</span><span class="task">Netlify araçlarının alt yola taşınması</span><span class="task">Haftalık not başlar</span></div>
+    <div><span class="task">Günlük portföy sayfaları, mobil haftalık kart</span></div>
+    <div><span class="task">Video serisi, yıl sonu özeti (Ocak)</span></div>
+    <div class="r">Plan + davet (M1, M5)</div>
+    <div><span class="task">Plan akışı tasarımı (mobil + portal kutusu)</span></div>
+    <div><span class="task">Plan pilotu → tam yayın (2,15)</span><span class="task">Arkadaşını getir + hoş geldin payı canlı</span></div>
+    <div><span class="task">6. ay davet kartı, ödül ölçeklenmesi</span></div>
+    <div class="r">Mesaj ve ölçüm (M6, M8)</div>
+    <div><span class="task">Davranış dili A/B testleri (0,60)</span><span class="task">NPS ölçümü başlar</span></div>
+    <div></div>
+    <div><span class="task">NPS'in prime bağlanması</span></div>
+    <div class="r">Ücretli kanallar (M4, M11)</div>
+    <div><span class="task pilot">YouTube pilotu: 2 kanal</span></div>
+    <div><span class="task pilot">YouTube değerlendirmesi, CAC &lt; 2.500 TL ise devam</span></div>
+    <div><span class="task pilot">Metro dalgaları (2,20), hedef sayfa = portal</span></div>
+    <div class="r">Sonraki dalga</div>
+    <div></div><div></div>
+    <div><span class="task pilot">Bordrodan düzenli yatırım, alışverişte yatırım hesabına iade: fizibilite</span></div>
+  </div>
+  <div class="note" style="margin-top:14px">12 ay toplam ek bütçe 18,5 milyon TL (faz 1: 9,6 · faz 2: 8,9); baz senaryoda ~1,4 milyar TL yeni veya elde tutulan varlık. Kaynak: Osmanlı Dijital Pazarlama Fizibilitesi, 11 Kasım 2026. Tüm rakamlar varsayımdır.</div>
+</section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

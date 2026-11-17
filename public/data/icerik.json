@@ -1,0 +1,116 @@
+{
+  "guncelleme": "2026-11-17",
+  "haftalikNot": [
+    {
+      "fon": "OPX30",
+      "degisiklik": "Endeks dönem değişimi uygulandı",
+      "neden": "BIST 30 çeyreklik revizyonu"
+    },
+    {
+      "fon": "OPD25",
+      "degisiklik": "2 hisse çıktı, 2 hisse girdi",
+      "neden": "Değer skoru yeniden hesaplandı"
+    },
+    {
+      "fon": "OPTGY",
+      "degisiklik": "Ağırlık sınırı devreye girdi",
+      "neden": "Tek GYO %10 sınırını aştı"
+    }
+  ],
+  "pozisyonlarOrnek": {
+    "OPX30": [
+      [
+        "THYAO",
+        "Ulaştırma",
+        9.8
+      ],
+      [
+        "ASELS",
+        "Savunma",
+        8.9
+      ],
+      [
+        "BIMAS",
+        "Perakende",
+        7.6
+      ],
+      [
+        "AKBNK",
+        "Banka",
+        6.9
+      ],
+      [
+        "GARAN",
+        "Banka",
+        6.7
+      ],
+      [
+        "KCHOL",
+        "Holding",
+        6.2
+      ],
+      [
+        "TUPRS",
+        "Enerji",
+        5.8
+      ],
+      [
+        "YKBNK",
+        "Banka",
+        5.1
+      ],
+      [
+        "ISCTR",
+        "Banka",
+        4.9
+      ],
+      [
+        "FROTO",
+        "Otomotiv",
+        4.4
+      ]
+    ]
+  },
+  "hisseFonOrnek": {
+    "THYAO": [
+      "OPX30",
+      "OPD25"
+    ],
+    "ASELS": [
+      "OPX30",
+      "OPD25"
+    ],
+    "BIMAS": [
+      "OPX30",
+      "OPK30",
+      "OPT25"
+    ],
+    "AKBNK": [
+      "OPX30",
+      "OPT25"
+    ],
+    "GARAN": [
+      "OPX30"
+    ],
+    "KCHOL": [
+      "OPX30",
+      "OPD25"
+    ],
+    "TUPRS": [
+      "OPX30",
+      "OPT25",
+      "OPK30"
+    ],
+    "EKGYO": [
+      "OPTGY",
+      "OPX30"
+    ],
+    "ISGYO": [
+      "OPTGY"
+    ],
+    "FROTO": [
+      "OPX30",
+      "OPT25"
+    ]
+  }
+}
